@@ -34,7 +34,7 @@ phases:
       - cp -r api/ server/
       - cp -r config/ server/
       - cp -r extensions/ server/
-      - cp package.json build/
+      - cp package.json server/
   build:
     commands:
       - cd server
@@ -61,5 +61,4 @@ artifacts:
 #cache:
   #paths:
     # - paths
-
 
