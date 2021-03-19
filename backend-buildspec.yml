@@ -31,20 +31,16 @@ phases:
       - yarn -v
   pre_build:
     commands:
-      - rm -r build/
-      - mkdir build
-      - cp scripts/trim-node-modules.sh build/
-      - cp -r api/ build/
-      - cp -r config/ build/
-      - cp -r extensions/ build/
-      - cp scripts/app.js build/
+      - cp -r api/ server/
+      - cp -r config/ server/
+      - cp -r extensions/ server/
       - cp package.json build/
-      - cp scripts/server.js build/config/
   build:
     commands:
-      - cd build
+      - cd server
       - npm i -g node-prune
-      - yarn && ../scripts/trim-node-modules.sh
+      - chmod +x trim-node-modules.sh
+      - yarn && ./trim-node-modules.sh
   #post_build:
     #commands:
 #reports:
@@ -61,7 +57,7 @@ artifacts:
     # - location
   #name: $(date +%Y-%m-%d)
   discard-paths: no
-  base-directory: build
+  base-directory: server
 #cache:
   #paths:
     # - paths
