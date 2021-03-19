@@ -36,6 +36,7 @@ phases:
   build:
     commands:
       - yarn build
+      - chmod +x ./scripts/post-build.sh 
       - ./scripts/post-build.sh
   post_build:
     commands:
