@@ -35,6 +35,7 @@ phases:
       - cp -r config/ server/
       - cp -r extensions/ server/
       - cp package.json server/
+      - mv server/server.js server/config/
   build:
     commands:
       - cd server
